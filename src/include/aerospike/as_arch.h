@@ -36,6 +36,10 @@
 
 #define as_arch_pause() asm volatile("isb" : : : "memory")
 
+#elif defined __powerpc64__
+
+#define as_arch_pause() asm volatile("or 27,27,27" : : : "memory")
+
 #endif
 
 #endif // gcc & clang
